@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftuitextview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sanggab/SwiftUITextView.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "26ff1bf10a470ffd80e6960ec9aa0d337a7b1d80"
+      }
+    }
+  ],
+  "version" : 2
+}

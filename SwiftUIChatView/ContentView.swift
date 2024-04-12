@@ -6,16 +6,39 @@
 //
 
 import SwiftUI
+import SwiftUITextView
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+public struct ContentView: View {
+    @State private var text: String = ""
+    
+    @State private var selection: Int = 0
+    
+    @FocusState private var keyboardState
+    
+    public var body: some View {
+        TabView(selection: $selection) {
+            
+            ChatView()
+                .tag(0)
+            
+            ProfileView()
+                .tag(1)
         }
-        .padding()
+        .tabViewStyle(.page)
+        .overlay(alignment: .bottom) {
+            TextView(text: $text, style: .placeHolder)
+                .setInputModel(TextViewInputModel(placeholderText: "Enter message",
+                                                  placeholderColor: .gray,
+                                                  placeholderFont: .boldSystemFont(ofSize: 15),
+                                                  focusColor: .black,
+                                                  focusFont: .boldSystemFont(ofSize: 15)))
+                .frame(width: UIScreen.main.bounds.width, height: 100)
+                .background(.blue)
+                .focused($keyboardState)
+        }
+        .onTapGesture {
+            keyboardState = false
+        }
     }
 }
 

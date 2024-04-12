@@ -14,6 +14,9 @@
 		EFA2C2782BC3B3B0007DA3FE /* SwiftUIChatViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C2772BC3B3B0007DA3FE /* SwiftUIChatViewTests.swift */; };
 		EFA2C2822BC3B3B0007DA3FE /* SwiftUIChatViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C2812BC3B3B0007DA3FE /* SwiftUIChatViewUITests.swift */; };
 		EFA2C2842BC3B3B0007DA3FE /* SwiftUIChatViewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C2832BC3B3B0007DA3FE /* SwiftUIChatViewUITestsLaunchTests.swift */; };
+		EFCC95372BC8C81B006A334E /* SwiftUITextView in Frameworks */ = {isa = PBXBuildFile; productRef = EFCC95362BC8C81B006A334E /* SwiftUITextView */; };
+		EFCC953C2BC8C90A006A334E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC953B2BC8C90A006A334E /* ProfileView.swift */; };
+		EFCC953E2BC8C95C006A334E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC953D2BC8C95C006A334E /* ChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,8 @@
 		EFA2C27D2BC3B3B0007DA3FE /* SwiftUIChatViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIChatViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFA2C2812BC3B3B0007DA3FE /* SwiftUIChatViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatViewUITests.swift; sourceTree = "<group>"; };
 		EFA2C2832BC3B3B0007DA3FE /* SwiftUIChatViewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatViewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EFCC953B2BC8C90A006A334E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EFCC953D2BC8C95C006A334E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFCC95372BC8C81B006A334E /* SwiftUITextView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +100,9 @@
 		EFA2C2652BC3B3AE007DA3FE /* SwiftUIChatView */ = {
 			isa = PBXGroup;
 			children = (
+				EFDDE0C02BC778660082AF44 /* Model */,
+				EFCC953A2BC8C904006A334E /* ProfileView */,
+				EFCC95382BC8C8FC006A334E /* ChatView */,
 				EFA2C2662BC3B3AE007DA3FE /* SwiftUIChatViewApp.swift */,
 				EFA2C2682BC3B3AE007DA3FE /* ContentView.swift */,
 				EFA2C26A2BC3B3B0007DA3FE /* Assets.xcassets */,
@@ -127,6 +136,29 @@
 			path = SwiftUIChatViewUITests;
 			sourceTree = "<group>";
 		};
+		EFCC95382BC8C8FC006A334E /* ChatView */ = {
+			isa = PBXGroup;
+			children = (
+				EFCC953D2BC8C95C006A334E /* ChatView.swift */,
+			);
+			path = ChatView;
+			sourceTree = "<group>";
+		};
+		EFCC953A2BC8C904006A334E /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				EFCC953B2BC8C90A006A334E /* ProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		EFDDE0C02BC778660082AF44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +175,9 @@
 			dependencies = (
 			);
 			name = SwiftUIChatView;
+			packageProductDependencies = (
+				EFCC95362BC8C81B006A334E /* SwiftUITextView */,
+			);
 			productName = SwiftUIChatView;
 			productReference = EFA2C2632BC3B3AE007DA3FE /* SwiftUIChatView.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +250,9 @@
 				Base,
 			);
 			mainGroup = EFA2C25A2BC3B3AE007DA3FE;
+			packageReferences = (
+				EFCC95352BC8C81B006A334E /* XCRemoteSwiftPackageReference "SwiftUITextView" */,
+			);
 			productRefGroup = EFA2C2642BC3B3AE007DA3FE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,7 +295,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFCC953E2BC8C95C006A334E /* ChatView.swift in Sources */,
 				EFA2C2692BC3B3AE007DA3FE /* ContentView.swift in Sources */,
+				EFCC953C2BC8C90A006A334E /* ProfileView.swift in Sources */,
 				EFA2C2672BC3B3AE007DA3FE /* SwiftUIChatViewApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,7 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -404,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -430,6 +470,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +500,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -588,6 +630,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EFCC95352BC8C81B006A334E /* XCRemoteSwiftPackageReference "SwiftUITextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sanggab/SwiftUITextView.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EFCC95362BC8C81B006A334E /* SwiftUITextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFCC95352BC8C81B006A334E /* XCRemoteSwiftPackageReference "SwiftUITextView" */;
+			productName = SwiftUITextView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EFA2C25B2BC3B3AE007DA3FE /* Project object */;
 }
