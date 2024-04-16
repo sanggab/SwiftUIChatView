@@ -16,31 +16,35 @@ public struct ContentView: View {
     @FocusState private var keyboardState
     
     public var body: some View {
-        TabView(selection: $selection) {
-            
-            ChatView()
-                .tag(0)
-            
-            ProfileView()
-                .tag(1)
+        VStack(spacing: 0) {
+            TabView(selection: $selection) {
+                
+                ChatView()
+                    .tag(0)
+                
+                ProfileView()
+                    .tag(1)
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .padding(.bottom, 56)
+            .overlay(alignment: .bottom) {
+                TextView(text: $text, style: .placeHolder)
+                    .setInputModel(TextViewInputModel(placeholderText: "Enter message",
+                                                      placeholderColor: .gray,
+                                                      placeholderFont: .boldSystemFont(ofSize: 15),
+                                                      focusColor: .black,
+                                                      focusFont: .boldSystemFont(ofSize: 15)))
+                    .focused($keyboardState)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 56)
+                    .background(.blue)
+                    .padding(.bottom, 0.1)
+            }
+            .onTapGesture {
+                keyboardState = false
+            }
         }
-        .tabViewStyle(.page(indexDisplayMode: .never))
-//        .padding(.bottom, 56)
-        .ignoresSafeArea(.keyboard, edges: .all)
-        .overlay(alignment: .bottom) {
-            TextView(text: $text, style: .placeHolder)
-                .setInputModel(TextViewInputModel(placeholderText: "Enter message",
-                                                  placeholderColor: .gray,
-                                                  placeholderFont: .boldSystemFont(ofSize: 15),
-                                                  focusColor: .black,
-                                                  focusFont: .boldSystemFont(ofSize: 15)))
-                .frame(width: UIScreen.main.bounds.width, height: 56)
-                .background(.white)
-                .focused($keyboardState)
-        }
-        .onTapGesture {
-            keyboardState = false
-        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

@@ -18,6 +18,9 @@
 		EFCC953C2BC8C90A006A334E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC953B2BC8C90A006A334E /* ProfileView.swift */; };
 		EFCC953E2BC8C95C006A334E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC953D2BC8C95C006A334E /* ChatView.swift */; };
 		EFD9DEFF2BCE01A60060D249 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9DEFE2BCE01A60060D249 /* Animation.swift */; };
+		EFD9DF022BCE45E90060D249 /* First.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9DF012BCE45E90060D249 /* First.swift */; };
+		EFD9DF052BCE50C60060D249 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = EFD9DF042BCE50C60060D249 /* SwiftUIIntrospect */; };
+		EFD9DF082BCE54710060D249 /* PreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9DF072BCE54710060D249 /* PreferenceKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,8 @@
 		EFCC953B2BC8C90A006A334E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EFCC953D2BC8C95C006A334E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		EFD9DEFE2BCE01A60060D249 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		EFD9DF012BCE45E90060D249 /* First.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = First.swift; sourceTree = "<group>"; };
+		EFD9DF072BCE54710060D249 /* PreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFCC95372BC8C81B006A334E /* SwiftUITextView in Frameworks */,
+				EFD9DF052BCE50C60060D249 /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +108,8 @@
 		EFA2C2652BC3B3AE007DA3FE /* SwiftUIChatView */ = {
 			isa = PBXGroup;
 			children = (
+				EFD9DF062BCE54640060D249 /* PreferenceKey */,
+				EFD9DF002BCE45D10060D249 /* Way */,
 				EFD9DEFD2BCE019F0060D249 /* Extension */,
 				EFDDE0C02BC778660082AF44 /* Model */,
 				EFCC953A2BC8C904006A334E /* ProfileView */,
@@ -163,6 +171,22 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		EFD9DF002BCE45D10060D249 /* Way */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9DF012BCE45E90060D249 /* First.swift */,
+			);
+			path = Way;
+			sourceTree = "<group>";
+		};
+		EFD9DF062BCE54640060D249 /* PreferenceKey */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9DF072BCE54710060D249 /* PreferenceKey.swift */,
+			);
+			path = PreferenceKey;
+			sourceTree = "<group>";
+		};
 		EFDDE0C02BC778660082AF44 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +212,7 @@
 			name = SwiftUIChatView;
 			packageProductDependencies = (
 				EFCC95362BC8C81B006A334E /* SwiftUITextView */,
+				EFD9DF042BCE50C60060D249 /* SwiftUIIntrospect */,
 			);
 			productName = SwiftUIChatView;
 			productReference = EFA2C2632BC3B3AE007DA3FE /* SwiftUIChatView.app */;
@@ -263,6 +288,7 @@
 			mainGroup = EFA2C25A2BC3B3AE007DA3FE;
 			packageReferences = (
 				EFCC95352BC8C81B006A334E /* XCRemoteSwiftPackageReference "SwiftUITextView" */,
+				EFD9DF032BCE50C60060D249 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			productRefGroup = EFA2C2642BC3B3AE007DA3FE /* Products */;
 			projectDirPath = "";
@@ -308,6 +334,8 @@
 			files = (
 				EFCC953E2BC8C95C006A334E /* ChatView.swift in Sources */,
 				EFA2C2692BC3B3AE007DA3FE /* ContentView.swift in Sources */,
+				EFD9DF022BCE45E90060D249 /* First.swift in Sources */,
+				EFD9DF082BCE54710060D249 /* PreferenceKey.swift in Sources */,
 				EFCC953C2BC8C90A006A334E /* ProfileView.swift in Sources */,
 				EFD9DEFF2BCE01A60060D249 /* Animation.swift in Sources */,
 				EFA2C2672BC3B3AE007DA3FE /* SwiftUIChatViewApp.swift in Sources */,
@@ -652,6 +680,14 @@
 				kind = branch;
 			};
 		};
+		EFD9DF032BCE50C60060D249 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -659,6 +695,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EFCC95352BC8C81B006A334E /* XCRemoteSwiftPackageReference "SwiftUITextView" */;
 			productName = SwiftUITextView;
+		};
+		EFD9DF042BCE50C60060D249 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD9DF032BCE50C60060D249 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
