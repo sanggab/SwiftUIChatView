@@ -17,6 +17,7 @@
 		EFCC95372BC8C81B006A334E /* SwiftUITextView in Frameworks */ = {isa = PBXBuildFile; productRef = EFCC95362BC8C81B006A334E /* SwiftUITextView */; };
 		EFCC953C2BC8C90A006A334E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC953B2BC8C90A006A334E /* ProfileView.swift */; };
 		EFCC953E2BC8C95C006A334E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC953D2BC8C95C006A334E /* ChatView.swift */; };
+		EFD9DEFF2BCE01A60060D249 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9DEFE2BCE01A60060D249 /* Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		EFA2C2832BC3B3B0007DA3FE /* SwiftUIChatViewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatViewUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EFCC953B2BC8C90A006A334E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EFCC953D2BC8C95C006A334E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		EFD9DEFE2BCE01A60060D249 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		EFA2C2652BC3B3AE007DA3FE /* SwiftUIChatView */ = {
 			isa = PBXGroup;
 			children = (
+				EFD9DEFD2BCE019F0060D249 /* Extension */,
 				EFDDE0C02BC778660082AF44 /* Model */,
 				EFCC953A2BC8C904006A334E /* ProfileView */,
 				EFCC95382BC8C8FC006A334E /* ChatView */,
@@ -150,6 +153,14 @@
 				EFCC953B2BC8C90A006A334E /* ProfileView.swift */,
 			);
 			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		EFD9DEFD2BCE019F0060D249 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9DEFE2BCE01A60060D249 /* Animation.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		EFDDE0C02BC778660082AF44 /* Model */ = {
@@ -298,6 +309,7 @@
 				EFCC953E2BC8C95C006A334E /* ChatView.swift in Sources */,
 				EFA2C2692BC3B3AE007DA3FE /* ContentView.swift in Sources */,
 				EFCC953C2BC8C90A006A334E /* ProfileView.swift in Sources */,
+				EFD9DEFF2BCE01A60060D249 /* Animation.swift in Sources */,
 				EFA2C2672BC3B3AE007DA3FE /* SwiftUIChatViewApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

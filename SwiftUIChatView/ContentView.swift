@@ -25,7 +25,8 @@ public struct ContentView: View {
                 .tag(1)
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
-        .padding(.bottom, 56)
+//        .padding(.bottom, 56)
+        .ignoresSafeArea(.keyboard, edges: .all)
         .overlay(alignment: .bottom) {
             TextView(text: $text, style: .placeHolder)
                 .setInputModel(TextViewInputModel(placeholderText: "Enter message",
@@ -34,7 +35,7 @@ public struct ContentView: View {
                                                   focusColor: .black,
                                                   focusFont: .boldSystemFont(ofSize: 15)))
                 .frame(width: UIScreen.main.bounds.width, height: 56)
-//                .background(.blue)
+                .background(.white)
                 .focused($keyboardState)
         }
         .onTapGesture {
