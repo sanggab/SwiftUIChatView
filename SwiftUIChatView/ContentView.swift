@@ -39,6 +39,10 @@ public struct ContentView: View {
                     .frame(height: 56)
                     .background(.blue)
                     .padding(.bottom, 0.1)
+                    .getKeyboardOutput { output, state in
+                        print("state -> \(state)")
+                        print("output -> \(output)")
+                    }
             }
             .onTapGesture {
                 keyboardState = false
