@@ -13,6 +13,10 @@ public struct ContentView: View {
     
     @State private var selection: Int = 0
     
+    @State private var keyboardHeight: CGFloat = .zero
+    
+    @State private var safeAreaInsets: EdgeInsets = .init()
+    
     @FocusState private var keyboardState
     
     public var body: some View {
@@ -38,7 +42,8 @@ public struct ContentView: View {
                     .frame(maxWidth: .infinity)
                     .frame(height: 56)
                     .background(.blue)
-                    .padding(.bottom, 0.1)
+                    .padding(.bottom, keyboardHeight > 0 ? keyboardHeight - safeAreaInsets.bottom : keyboardHeight)
+                    .getKeyboardHeight($keyboardHeight)
                     .getKeyboardOutput { output, state in
                         print("state -> \(state)")
                         print("output -> \(output)")
@@ -49,6 +54,15 @@ public struct ContentView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background {
+            GeometryReader { geometry in
+                Color.clear
+                    .onAppear {
+                        safeAreaInsets = geometry.safeAreaInsets
+                    }
+            }
+        }
+        .ignoresSafeArea(.keyboard, edges: .all)
     }
 }
 

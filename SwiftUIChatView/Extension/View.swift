@@ -33,7 +33,9 @@ public struct KeyBoardModifier: ViewModifier {
                 } else {
                     if let userInfo = output.userInfo {
                         if let size = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-                            height = size.height
+                            withAnimation(.keyboardAnimation(from: output)) {
+                                height = size.height
+                            }
                         }
                     }
                 }
@@ -42,7 +44,9 @@ public struct KeyBoardModifier: ViewModifier {
                 if let outputClosure {
                     outputClosure(output, .hide)
                 } else {
-                    height = 0
+                    withAnimation(.keyboardAnimation(from: output)) {
+                        height = .zero
+                    }
                 }
             }
     }
@@ -50,7 +54,7 @@ public struct KeyBoardModifier: ViewModifier {
 
 public extension View {
     
-    @inlinable func getKeyboardHeight(height: Binding<CGFloat>) -> some View {
+    @inlinable func getKeyboardHeight(_ height: Binding<CGFloat>) -> some View {
         modifier(KeyBoardModifier(height: height))
     }
     

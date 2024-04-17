@@ -63,7 +63,7 @@ public struct ChatView: View {
                                 return
                             }
                             
-                            let newOffset: CGPoint = CGPoint(x: scrollView.contentOffset.x, y: (scrollView.contentOffset.y + size.height))
+                            let newOffset: CGPoint = CGPoint(x: scrollView.contentOffset.x, y: (scrollView.contentOffset.y + size.height - 34))
                             print("newOffset -> \(newOffset)")
                             
                             mainScrollView?.setContentOffset(newOffset, animated: false)
@@ -86,12 +86,9 @@ public struct ChatView: View {
                                 return
                             }
                             
-                            guard scrollView.contentOffset.y - size.height >= 0 else {
-                                return
-                            }
+                            let offsetY = max(0, scrollView.contentOffset.y - size.height + 34)
                             
-                            
-                            let newOffset: CGPoint = CGPoint(x: scrollView.contentOffset.x, y: (scrollView.contentOffset.y - size.height))
+                            let newOffset: CGPoint = CGPoint(x: scrollView.contentOffset.x, y: offsetY)
                             print("newOffset -> \(newOffset)")
                             
                             mainScrollView?.setContentOffset(newOffset, animated: false)
