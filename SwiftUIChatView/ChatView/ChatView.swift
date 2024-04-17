@@ -74,7 +74,31 @@ public struct ChatView: View {
                 }
                 .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { output in
                     print("keyboardWillHideNotification")
-                    blankHeight = 0
+                    guard let scrollView = mainScrollView else {
+                        return
+                    }
+                    
+                    if let userInfo = output.userInfo {
+                        if let size = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+                            print("mainScrollView contentOffset -> \(mainScrollView?.contentOffset)")
+                            
+                            guard let scrollView = mainScrollView else {
+                                return
+                            }
+                            
+                            guard scrollView.contentOffset.y - size.height >= 0 else {
+                                return
+                            }
+                            
+                            
+                            let newOffset: CGPoint = CGPoint(x: scrollView.contentOffset.x, y: (scrollView.contentOffset.y - size.height))
+                            print("newOffset -> \(newOffset)")
+                            
+                            mainScrollView?.setContentOffset(newOffset, animated: false)
+                            
+                            print("mainScrollView contentOffset -> \(mainScrollView?.contentOffset)")
+                        }
+                    }
                 }
                 
                 Rectangle()
