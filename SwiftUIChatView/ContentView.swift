@@ -40,9 +40,9 @@ public struct ContentView: View {
                     .focused($keyboardState)
                     .frame(maxWidth: .infinity)
                     .frame(height: 56)
+                    .padding(.bottom, keyboardHeight > 0 ? keyboardHeight - safeAreaInsets.bottom : keyboardHeight)
                     .background(.blue)
                     .getKeyboardHeight($keyboardHeight)
-                    .padding(.bottom, keyboardHeight > 0 ? keyboardHeight - safeAreaInsets.bottom : keyboardHeight)
             })
 //            .padding(.bottom, 56)
 //            .overlay(alignment: .bottom) {

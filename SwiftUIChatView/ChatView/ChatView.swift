@@ -20,7 +20,7 @@ public struct ChatView: View {
     
     @State private var mainScrollView: UIScrollView?
     
-    @State private var chatList: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    @State private var chatList: [Int] = [1710311216, 1710311322, 1710311342, 1710311348, 1710311364, 1710311370, 1710311374, 1710311376, 1710311386, 1710311400, 1710311422, 1710311423, Int(Date().timeIntervalSince1970)]
     
     public var body: some View {
         ScrollViewReader { scrollProxy in
@@ -32,21 +32,38 @@ public struct ChatView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVStack(spacing: 16, content: {
                         
-                        ForEach(Array(chatList.reversed()), id: \.self) { count in
+                        ForEach(Array(chatList.reversed().enumerated()), id: \.element) { index, time in
                             Rectangle()
                                 .fill(.mint)
                                 .frame(height: 100)
-                                .id("Rectangle\(count)")
+//                                .id("Rectangle\(index)")
                                 .overlay {
-                                    Text("\(count)")
+                                    Text("\(index)")
                                 }
                                 .onAppear {
-                                    print("onAppear count -> \(count)")
+//                                    print("onAppear count -> \(index)")
                                 }
                                 .onDisappear {
-                                    print("onDisappear count -> \(count)")
+//                                    print("onDisappear count -> \(index)")
                                 }
                                 .rotationEffect(.degrees(180))
+                                .id("Rectangle\(index)")
+                            
+                            if index == chatList.count - 1 {
+                                ChatDateDivisionView(date: time.makeLocaleDate())
+                                    .rotationEffect(.degrees(180))
+                            } else {
+                                let preDate = chatList.reversed()[index + 1]
+                                let _ = print("index -> \(index)")
+                                let _ = print("time -> \(time)")
+                                let _ = print("preDate -> \(preDate)")
+//                                let _ = print("date -> \(time.makeLocaleDate())")
+                                
+                                if preDate.makeLocaleDate() != time.makeLocaleDate() {
+                                    ChatDateDivisionView(date: time.makeLocaleDate())
+                                        .rotationEffect(.degrees(180))
+                                }
+                            }
                         }
                     })
                     .id(UUID())

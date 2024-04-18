@@ -15,6 +15,8 @@
 		EFA2C2782BC3B3B0007DA3FE /* SwiftUIChatViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C2772BC3B3B0007DA3FE /* SwiftUIChatViewTests.swift */; };
 		EFA2C2822BC3B3B0007DA3FE /* SwiftUIChatViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C2812BC3B3B0007DA3FE /* SwiftUIChatViewUITests.swift */; };
 		EFA2C2842BC3B3B0007DA3FE /* SwiftUIChatViewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C2832BC3B3B0007DA3FE /* SwiftUIChatViewUITestsLaunchTests.swift */; };
+		EFC17A432BD1027E00AC01AC /* ChatDateDivisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC17A422BD1027E00AC01AC /* ChatDateDivisionView.swift */; };
+		EFC17A452BD102CD00AC01AC /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC17A442BD102CD00AC01AC /* Int.swift */; };
 		EFCC95372BC8C81B006A334E /* SwiftUITextView in Frameworks */ = {isa = PBXBuildFile; productRef = EFCC95362BC8C81B006A334E /* SwiftUITextView */; };
 		EFCC953C2BC8C90A006A334E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC953B2BC8C90A006A334E /* ProfileView.swift */; };
 		EFCC953E2BC8C95C006A334E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC953D2BC8C95C006A334E /* ChatView.swift */; };
@@ -54,6 +56,8 @@
 		EFA2C27D2BC3B3B0007DA3FE /* SwiftUIChatViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIChatViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFA2C2812BC3B3B0007DA3FE /* SwiftUIChatViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatViewUITests.swift; sourceTree = "<group>"; };
 		EFA2C2832BC3B3B0007DA3FE /* SwiftUIChatViewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatViewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EFC17A422BD1027E00AC01AC /* ChatDateDivisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDateDivisionView.swift; sourceTree = "<group>"; };
+		EFC17A442BD102CD00AC01AC /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		EFCC953B2BC8C90A006A334E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EFCC953D2BC8C95C006A334E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		EFD8A3F22BCFBE2500A3DB68 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -151,9 +155,18 @@
 			path = SwiftUIChatViewUITests;
 			sourceTree = "<group>";
 		};
+		EFC17A412BD1027100AC01AC /* ChatDateDivisionView */ = {
+			isa = PBXGroup;
+			children = (
+				EFC17A422BD1027E00AC01AC /* ChatDateDivisionView.swift */,
+			);
+			path = ChatDateDivisionView;
+			sourceTree = "<group>";
+		};
 		EFCC95382BC8C8FC006A334E /* ChatView */ = {
 			isa = PBXGroup;
 			children = (
+				EFC17A412BD1027100AC01AC /* ChatDateDivisionView */,
 				EFCC953D2BC8C95C006A334E /* ChatView.swift */,
 			);
 			path = ChatView;
@@ -171,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				EFD9DEFE2BCE01A60060D249 /* Animation.swift */,
+				EFC17A442BD102CD00AC01AC /* Int.swift */,
 				EFD8A3F22BCFBE2500A3DB68 /* View.swift */,
 			);
 			path = Extension;
@@ -345,8 +359,10 @@
 				EFD9DF082BCE54710060D249 /* PreferenceKey.swift in Sources */,
 				EF1A4A0F2BD0D4AF006155BA /* Second.swift in Sources */,
 				EFCC953C2BC8C90A006A334E /* ProfileView.swift in Sources */,
+				EFC17A452BD102CD00AC01AC /* Int.swift in Sources */,
 				EFD9DEFF2BCE01A60060D249 /* Animation.swift in Sources */,
 				EFA2C2672BC3B3AE007DA3FE /* SwiftUIChatViewApp.swift in Sources */,
+				EFC17A432BD1027E00AC01AC /* ChatDateDivisionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
