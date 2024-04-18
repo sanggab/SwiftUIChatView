@@ -43,11 +43,12 @@ public struct ContentView: View {
                     .frame(height: 56)
                     .background(.blue)
                     .padding(.bottom, keyboardHeight > 0 ? keyboardHeight - safeAreaInsets.bottom : keyboardHeight)
+//                    .offset(y: keyboardHeight > 0 ? -(keyboardHeight - safeAreaInsets.bottom) : keyboardHeight)
                     .getKeyboardHeight($keyboardHeight)
-                    .getKeyboardOutput { output, state in
-                        print("state -> \(state)")
-                        print("output -> \(output)")
-                    }
+//                    .getKeyboardOutput { output, state in
+//                        print("state -> \(state)")
+//                        print("output -> \(output)")
+//                    }
             }
             .onTapGesture {
                 keyboardState = false

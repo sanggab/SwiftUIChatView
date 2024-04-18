@@ -42,6 +42,7 @@ public struct ChatView: View {
                             
                             Color.clear
                                 .preference(key: ChatScrollOffsetKey.self, value: frame.origin.y)
+                                .preference(key: ChatListHeightKey.self, value: frame.height)
                         }
                     }
                 }
@@ -51,7 +52,10 @@ public struct ChatView: View {
                     mainScrollView = introScrollView
                 }
                 .onPreferenceChange(ChatScrollOffsetKey.self) { offset in
-                    print("offset -> \(offset)")
+//                    print("offset -> \(offset)")
+                }
+                .onPreferenceChange(ChatListHeightKey.self) { height in
+                    print("ChatListHeightKey -> \(height)")
                 }
                 .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { output in
                     print("keyboardWillShowNotification")
@@ -63,21 +67,28 @@ public struct ChatView: View {
                                 return
                             }
                             
+                            let moveOffsetY = size.height - 34
+                            let intricSize = scrollView.contentOffset.y + scrollView.frame.height
+                            
+                            let remainHeight = scrollView.contentSize.height - intricSize
+                            
+                            let test = remainHeight - moveOffsetY
+                            
+                            print("test -> \(test)")
+                            
+                            let min = min(0, remainHeight - moveOffsetY)
+//                            
+                            print("min -> \(min)")
+                            
                             let newOffset: CGPoint = CGPoint(x: scrollView.contentOffset.x, y: (scrollView.contentOffset.y + size.height - 34))
-                            print("newOffset -> \(newOffset)")
                             
                             mainScrollView?.setContentOffset(newOffset, animated: false)
-                            
-                            print("mainScrollView contentOffset -> \(mainScrollView?.contentOffset)")
+                            blankHeight = moveOffsetY
                         }
                     }
                 }
                 .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { output in
                     print("keyboardWillHideNotification")
-                    guard let scrollView = mainScrollView else {
-                        return
-                    }
-                    
                     if let userInfo = output.userInfo {
                         if let size = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
                             print("mainScrollView contentOffset -> \(mainScrollView?.contentOffset)")
@@ -92,17 +103,15 @@ public struct ChatView: View {
                             print("newOffset -> \(newOffset)")
                             
                             mainScrollView?.setContentOffset(newOffset, animated: false)
-                            
-                            print("mainScrollView contentOffset -> \(mainScrollView?.contentOffset)")
+                            blankHeight = .zero
                         }
                     }
                 }
                 
-                Rectangle()
-                    .fill(.pink)
+                Spacer()
                     .frame(height: blankHeight)
-                    
             }
+            .background(.clear)
         }
     }
 }
