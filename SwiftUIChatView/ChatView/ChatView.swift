@@ -20,12 +20,19 @@ public struct ChatView: View {
     
     @State private var mainScrollView: UIScrollView?
     
+    @State private var chatList: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    
     public var body: some View {
         ScrollViewReader { scrollProxy in
             VStack(spacing: 0) {
+                Rectangle()
+                    .fill(.pink)
+                    .frame(height: blankHeight)
+                
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVStack(spacing: 16, content: {
-                        ForEach(1...20, id: \.self) { count in
+                        
+                        ForEach(Array(chatList.reversed()), id: \.self) { count in
                             Rectangle()
                                 .fill(.mint)
                                 .frame(height: 100)
@@ -33,6 +40,13 @@ public struct ChatView: View {
                                 .overlay {
                                     Text("\(count)")
                                 }
+                                .onAppear {
+                                    print("onAppear count -> \(count)")
+                                }
+                                .onDisappear {
+                                    print("onDisappear count -> \(count)")
+                                }
+                                .rotationEffect(.degrees(180))
                         }
                     })
                     .id(UUID())
@@ -57,61 +71,31 @@ public struct ChatView: View {
                 .onPreferenceChange(ChatListHeightKey.self) { height in
                     print("ChatListHeightKey -> \(height)")
                 }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { output in
-                    print("keyboardWillShowNotification")
-                    if let userInfo = output.userInfo {
-                        if let size = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-                            print("mainScrollView contentOffset -> \(mainScrollView?.contentOffset)")
-                            
-                            guard let scrollView = mainScrollView else {
-                                return
-                            }
-                            
-                            let moveOffsetY = size.height - 34
-                            let intricSize = scrollView.contentOffset.y + scrollView.frame.height
-                            
-                            let remainHeight = scrollView.contentSize.height - intricSize
-                            
-                            let test = remainHeight - moveOffsetY
-                            
-                            print("test -> \(test)")
-                            
-                            let min = min(0, remainHeight - moveOffsetY)
-//                            
-                            print("min -> \(min)")
-                            
-                            let newOffset: CGPoint = CGPoint(x: scrollView.contentOffset.x, y: (scrollView.contentOffset.y + size.height - 34))
-                            
-                            mainScrollView?.setContentOffset(newOffset, animated: false)
-                            blankHeight = moveOffsetY
-                        }
-                    }
+                .getKeyboardOutput { output, state in
+                    keyboardAction(output, state)
                 }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { output in
-                    print("keyboardWillHideNotification")
-                    if let userInfo = output.userInfo {
-                        if let size = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-                            print("mainScrollView contentOffset -> \(mainScrollView?.contentOffset)")
-                            
-                            guard let scrollView = mainScrollView else {
-                                return
-                            }
-                            
-                            let offsetY = max(0, scrollView.contentOffset.y - size.height + 34)
-                            
-                            let newOffset: CGPoint = CGPoint(x: scrollView.contentOffset.x, y: offsetY)
-                            print("newOffset -> \(newOffset)")
-                            
-                            mainScrollView?.setContentOffset(newOffset, animated: false)
-                            blankHeight = .zero
-                        }
-                    }
-                }
-                
-                Spacer()
-                    .frame(height: blankHeight)
             }
             .background(.clear)
+            .rotationEffect(.degrees(180))
+        }
+    }
+    
+    private func keyboardAction(_ output: NotificationCenter.Publisher.Output, _ state: KeyBoardState) {
+        state == .show ? keyboardShowAction(output) : keyboardHideAction(output)
+    }
+    
+    private func keyboardShowAction(_ output: NotificationCenter.Publisher.Output) {
+        print("keyboardShowAction")
+        if let userInfo = output.userInfo {
+            if let size = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            }
+        }
+    }
+    
+    private func keyboardHideAction(_ output: NotificationCenter.Publisher.Output) {
+        print("keyboardHideAction")
+        withAnimation(.keyboardAnimation(from: output)) {
+//            blankHeight = 0
         }
     }
 }

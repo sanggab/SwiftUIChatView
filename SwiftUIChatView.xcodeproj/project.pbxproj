@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF1A4A0F2BD0D4AF006155BA /* Second.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1A4A0E2BD0D4AF006155BA /* Second.swift */; };
 		EFA2C2672BC3B3AE007DA3FE /* SwiftUIChatViewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C2662BC3B3AE007DA3FE /* SwiftUIChatViewApp.swift */; };
 		EFA2C2692BC3B3AE007DA3FE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA2C2682BC3B3AE007DA3FE /* ContentView.swift */; };
 		EFA2C26B2BC3B3B0007DA3FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFA2C26A2BC3B3B0007DA3FE /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF1A4A0E2BD0D4AF006155BA /* Second.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Second.swift; sourceTree = "<group>"; };
 		EFA2C2632BC3B3AE007DA3FE /* SwiftUIChatView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIChatView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFA2C2662BC3B3AE007DA3FE /* SwiftUIChatViewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIChatViewApp.swift; sourceTree = "<group>"; };
 		EFA2C2682BC3B3AE007DA3FE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				EFD9DF012BCE45E90060D249 /* First.swift */,
+				EF1A4A0E2BD0D4AF006155BA /* Second.swift */,
 			);
 			path = Way;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				EFA2C2692BC3B3AE007DA3FE /* ContentView.swift in Sources */,
 				EFD9DF022BCE45E90060D249 /* First.swift in Sources */,
 				EFD9DF082BCE54710060D249 /* PreferenceKey.swift in Sources */,
+				EF1A4A0F2BD0D4AF006155BA /* Second.swift in Sources */,
 				EFCC953C2BC8C90A006A334E /* ProfileView.swift in Sources */,
 				EFD9DEFF2BCE01A60060D249 /* Animation.swift in Sources */,
 				EFA2C2672BC3B3AE007DA3FE /* SwiftUIChatViewApp.swift in Sources */,

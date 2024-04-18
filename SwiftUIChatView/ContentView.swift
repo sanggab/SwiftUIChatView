@@ -30,8 +30,7 @@ public struct ContentView: View {
                     .tag(1)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            .padding(.bottom, 56)
-            .overlay(alignment: .bottom) {
+            .safeAreaInset(edge: .bottom, spacing: 0, content: {
                 TextView(text: $text, style: .placeHolder)
                     .setInputModel(TextViewInputModel(placeholderText: "Enter message",
                                                       placeholderColor: .gray,
@@ -42,14 +41,25 @@ public struct ContentView: View {
                     .frame(maxWidth: .infinity)
                     .frame(height: 56)
                     .background(.blue)
-                    .padding(.bottom, keyboardHeight > 0 ? keyboardHeight - safeAreaInsets.bottom : keyboardHeight)
-//                    .offset(y: keyboardHeight > 0 ? -(keyboardHeight - safeAreaInsets.bottom) : keyboardHeight)
                     .getKeyboardHeight($keyboardHeight)
-//                    .getKeyboardOutput { output, state in
-//                        print("state -> \(state)")
-//                        print("output -> \(output)")
-//                    }
-            }
+                    .padding(.bottom, keyboardHeight > 0 ? keyboardHeight - safeAreaInsets.bottom : keyboardHeight)
+            })
+//            .padding(.bottom, 56)
+//            .overlay(alignment: .bottom) {
+//                TextView(text: $text, style: .placeHolder)
+//                    .setInputModel(TextViewInputModel(placeholderText: "Enter message",
+//                                                      placeholderColor: .gray,
+//                                                      placeholderFont: .boldSystemFont(ofSize: 15),
+//                                                      focusColor: .black,
+//                                                      focusFont: .boldSystemFont(ofSize: 15)))
+//                    .focused($keyboardState)
+//                    .frame(maxWidth: .infinity)
+//                    .frame(height: 56)
+//                    .background(.blue)
+//                    .padding(.bottom, keyboardHeight > 0 ? keyboardHeight - safeAreaInsets.bottom : keyboardHeight)
+////                    .offset(y: keyboardHeight > 0 ? -(keyboardHeight - safeAreaInsets.bottom) : keyboardHeight)
+//                    .getKeyboardHeight($keyboardHeight)
+//            }
             .onTapGesture {
                 keyboardState = false
             }
