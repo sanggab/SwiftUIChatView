@@ -20,6 +20,9 @@
 		EFCC95372BC8C81B006A334E /* SwiftUITextView in Frameworks */ = {isa = PBXBuildFile; productRef = EFCC95362BC8C81B006A334E /* SwiftUITextView */; };
 		EFCC953C2BC8C90A006A334E /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC953B2BC8C90A006A334E /* ProfileView.swift */; };
 		EFCC953E2BC8C95C006A334E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCC953D2BC8C95C006A334E /* ChatView.swift */; };
+		EFD020142BD2346400B85E84 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD020132BD2346400B85E84 /* Model.swift */; };
+		EFD020172BD2347900B85E84 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = EFD020162BD2347900B85E84 /* SwiftyJSON */; };
+		EFD020602BD234CD00B85E84 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EFD0205F2BD234CD00B85E84 /* Kingfisher */; };
 		EFD8A3F32BCFBE2500A3DB68 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD8A3F22BCFBE2500A3DB68 /* View.swift */; };
 		EFD9DEFF2BCE01A60060D249 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9DEFE2BCE01A60060D249 /* Animation.swift */; };
 		EFD9DF022BCE45E90060D249 /* First.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9DF012BCE45E90060D249 /* First.swift */; };
@@ -60,6 +63,7 @@
 		EFC17A442BD102CD00AC01AC /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		EFCC953B2BC8C90A006A334E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EFCC953D2BC8C95C006A334E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		EFD020132BD2346400B85E84 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		EFD8A3F22BCFBE2500A3DB68 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EFD9DEFE2BCE01A60060D249 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		EFD9DF012BCE45E90060D249 /* First.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = First.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD020602BD234CD00B85E84 /* Kingfisher in Frameworks */,
+				EFD020172BD2347900B85E84 /* SwiftyJSON in Frameworks */,
 				EFCC95372BC8C81B006A334E /* SwiftUITextView in Frameworks */,
 				EFD9DF052BCE50C60060D249 /* SwiftUIIntrospect in Frameworks */,
 			);
@@ -210,6 +216,7 @@
 		EFDDE0C02BC778660082AF44 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EFD020132BD2346400B85E84 /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +240,8 @@
 			packageProductDependencies = (
 				EFCC95362BC8C81B006A334E /* SwiftUITextView */,
 				EFD9DF042BCE50C60060D249 /* SwiftUIIntrospect */,
+				EFD020162BD2347900B85E84 /* SwiftyJSON */,
+				EFD0205F2BD234CD00B85E84 /* Kingfisher */,
 			);
 			productName = SwiftUIChatView;
 			productReference = EFA2C2632BC3B3AE007DA3FE /* SwiftUIChatView.app */;
@@ -309,6 +318,8 @@
 			packageReferences = (
 				EFCC95352BC8C81B006A334E /* XCRemoteSwiftPackageReference "SwiftUITextView" */,
 				EFD9DF032BCE50C60060D249 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+				EFD020152BD2347900B85E84 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				EFD0205E2BD234CD00B85E84 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = EFA2C2642BC3B3AE007DA3FE /* Products */;
 			projectDirPath = "";
@@ -355,6 +366,7 @@
 				EFD8A3F32BCFBE2500A3DB68 /* View.swift in Sources */,
 				EFCC953E2BC8C95C006A334E /* ChatView.swift in Sources */,
 				EFA2C2692BC3B3AE007DA3FE /* ContentView.swift in Sources */,
+				EFD020142BD2346400B85E84 /* Model.swift in Sources */,
 				EFD9DF022BCE45E90060D249 /* First.swift in Sources */,
 				EFD9DF082BCE54710060D249 /* PreferenceKey.swift in Sources */,
 				EF1A4A0F2BD0D4AF006155BA /* Second.swift in Sources */,
@@ -704,6 +716,22 @@
 				kind = branch;
 			};
 		};
+		EFD020152BD2347900B85E84 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+		EFD0205E2BD234CD00B85E84 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 		EFD9DF032BCE50C60060D249 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/swiftui-introspect";
@@ -719,6 +747,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EFCC95352BC8C81B006A334E /* XCRemoteSwiftPackageReference "SwiftUITextView" */;
 			productName = SwiftUITextView;
+		};
+		EFD020162BD2347900B85E84 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD020152BD2347900B85E84 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		EFD0205F2BD234CD00B85E84 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFD0205E2BD234CD00B85E84 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		EFD9DF042BCE50C60060D249 /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;

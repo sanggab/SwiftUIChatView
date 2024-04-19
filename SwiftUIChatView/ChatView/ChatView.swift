@@ -48,6 +48,9 @@ public struct ChatView: View {
                                 }
                                 .rotationEffect(.degrees(180))
                                 .id("Rectangle\(index)")
+                                .onTapGesture {
+                                    chatList.append(Int(Date().timeIntervalSince1970) + 100000)
+                                }
                             
                             if index == chatList.count - 1 {
                                 ChatDateDivisionView(date: time.makeLocaleDate())
@@ -83,7 +86,7 @@ public struct ChatView: View {
                     mainScrollView = introScrollView
                 }
                 .onPreferenceChange(ChatScrollOffsetKey.self) { offset in
-//                    print("offset -> \(offset)")
+                    print("offset -> \(offset)")
                 }
                 .onPreferenceChange(ChatListHeightKey.self) { height in
                     print("ChatListHeightKey -> \(height)")
