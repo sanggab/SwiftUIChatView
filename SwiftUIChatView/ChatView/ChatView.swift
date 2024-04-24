@@ -22,6 +22,11 @@ public struct ChatView: View {
     
     @State private var chatList: [Int] = [1710311216, 1710311322, 1710311342, 1710311348, 1710311364, 1710311370, 1710311374, 1710311376, 1710311386, 1710311400, 1710311422, 1710311423, Int(Date().timeIntervalSince1970)]
     
+    
+    @State private var chatList2: [MessageChatListModel] = MessageChatListModel.makeList()
+    
+    @State private var offset: CGFloat = .zero
+    
     public var body: some View {
         ScrollViewReader { scrollProxy in
             VStack(spacing: 0) {
@@ -30,46 +35,25 @@ public struct ChatView: View {
                     .frame(height: blankHeight)
                 
                 ScrollView(.vertical, showsIndicators: false) {
-                    LazyVStack(spacing: 16, content: {
-                        
-                        ForEach(Array(chatList.reversed().enumerated()), id: \.element) { index, time in
-                            Rectangle()
-                                .fill(.mint)
-                                .frame(height: 100)
-//                                .id("Rectangle\(index)")
-                                .overlay {
-                                    Text("\(index)")
-                                }
-                                .onAppear {
-//                                    print("onAppear count -> \(index)")
-                                }
-                                .onDisappear {
-//                                    print("onDisappear count -> \(index)")
-                                }
-                                .rotationEffect(.degrees(180))
-                                .id("Rectangle\(index)")
-                                .onTapGesture {
-                                    chatList.append(Int(Date().timeIntervalSince1970) + 100000)
-                                }
-                            
-                            if index == chatList.count - 1 {
-                                ChatDateDivisionView(date: time.makeLocaleDate())
-                                    .rotationEffect(.degrees(180))
-                            } else {
-                                let preDate = chatList.reversed()[index + 1]
-                                let _ = print("index -> \(index)")
-                                let _ = print("time -> \(time)")
-                                let _ = print("preDate -> \(preDate)")
-//                                let _ = print("date -> \(time.makeLocaleDate())")
+                    VStack(spacing: 16) {
+                     
+                        ForEach(Array(chatList2.enumerated()), id: \.element) { index, model in
+                            if model.msgType == .gif {
                                 
-                                if preDate.makeLocaleDate() != time.makeLocaleDate() {
-                                    ChatDateDivisionView(date: time.makeLocaleDate())
-                                        .rotationEffect(.degrees(180))
-                                }
+                                ChatGifView(chatModel: model, offset: offset, index: index)
+                                
+                            } else {
+                                Rectangle()
+                                    .fill(.mint)
+                                    .overlay {
+                                        Text("\(index)")
+                                    }
+                                    .frame(height: 100)
                             }
                         }
-                    })
-                    .id(UUID())
+                        
+                       
+                    }
                     .background {
                         GeometryReader { proxy in
                             let frame = proxy.frame(in: .named("ChatScrollView"))
@@ -79,14 +63,16 @@ public struct ChatView: View {
                                 .preference(key: ChatListHeightKey.self, value: frame.height)
                         }
                     }
+                    .rotationEffect(.degrees(180))
                 }
                 .coordinateSpace(name: "ChatScrollView")
                 .background(.gray)
                 .introspect(.scrollView, on: .iOS(.v15, .v16, .v17)) { introScrollView in
                     mainScrollView = introScrollView
                 }
-                .onPreferenceChange(ChatScrollOffsetKey.self) { offset in
-                    print("offset -> \(offset)")
+                .onPreferenceChange(ChatScrollOffsetKey.self) { scrollOffset in
+                    offset = scrollOffset
+//                    print("offset -> \(offset)")
                 }
                 .onPreferenceChange(ChatListHeightKey.self) { height in
                     print("ChatListHeightKey -> \(height)")

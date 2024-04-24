@@ -28,6 +28,7 @@
 		EFD9DF022BCE45E90060D249 /* First.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9DF012BCE45E90060D249 /* First.swift */; };
 		EFD9DF052BCE50C60060D249 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = EFD9DF042BCE50C60060D249 /* SwiftUIIntrospect */; };
 		EFD9DF082BCE54710060D249 /* PreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9DF072BCE54710060D249 /* PreferenceKey.swift */; };
+		EFDE95002BD8C8C80087171B /* ChatGifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDE94FF2BD8C8C80087171B /* ChatGifView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		EFD9DEFE2BCE01A60060D249 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		EFD9DF012BCE45E90060D249 /* First.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = First.swift; sourceTree = "<group>"; };
 		EFD9DF072BCE54710060D249 /* PreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceKey.swift; sourceTree = "<group>"; };
+		EFDE94FF2BD8C8C80087171B /* ChatGifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGifView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 		EFCC95382BC8C8FC006A334E /* ChatView */ = {
 			isa = PBXGroup;
 			children = (
+				EFDE94FE2BD8C8BE0087171B /* ChatGifView */,
 				EFC17A412BD1027100AC01AC /* ChatDateDivisionView */,
 				EFCC953D2BC8C95C006A334E /* ChatView.swift */,
 			);
@@ -219,6 +222,14 @@
 				EFD020132BD2346400B85E84 /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EFDE94FE2BD8C8BE0087171B /* ChatGifView */ = {
+			isa = PBXGroup;
+			children = (
+				EFDE94FF2BD8C8C80087171B /* ChatGifView.swift */,
+			);
+			path = ChatGifView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +376,7 @@
 			files = (
 				EFD8A3F32BCFBE2500A3DB68 /* View.swift in Sources */,
 				EFCC953E2BC8C95C006A334E /* ChatView.swift in Sources */,
+				EFDE95002BD8C8C80087171B /* ChatGifView.swift in Sources */,
 				EFA2C2692BC3B3AE007DA3FE /* ContentView.swift in Sources */,
 				EFD020142BD2346400B85E84 /* Model.swift in Sources */,
 				EFD9DF022BCE45E90060D249 /* First.swift in Sources */,
