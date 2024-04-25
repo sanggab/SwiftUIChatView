@@ -28,31 +28,27 @@ struct ChatGifView: View {
                         .configure { imageView in
                             imageView.framePreloadCount = 1
                         }
-                        .cornerRadius(8)
                 }
                 .frame(width: 150, height: 150)
+                .cornerRadius(8)
             } else {
-                KFImage(URL(string: chatModel.msgEtc.gifModel.gifUrl))
-                    .resizable()
-                    .frame(width: 150, height: 150)
-                    .cornerRadius(8)
+                ZStack {
+                    KFImage(URL(string: chatModel.msgEtc.gifModel.gifUrl))
+                }
+                .frame(width: 150, height: 150)
+                .cornerRadius(8)
             }
         }
         .background {
             GeometryReader { geomtryProxy in
                 Color.clear
                     .onAppear {
-//                                print("index : \(index) proxy -> \(geomtryProxy.frame(in: .named("ChatScrollView")).maxY)")
                         pointY = geomtryProxy.frame(in: .named("ChatScrollView")).maxY
-                        print("머야 : \(pointY)")
-                        print("offset : \(offset)")
                         viewState = abs(offset) < pointY
                     }
             }
         }
         .onChange(of: offset) { newValue in
-//            print("newValue -> \(newValue)")
-//            print("index : \(index) offset : \(newValue) pointY : \(pointY)")
             viewState = abs(newValue) < pointY
         }
         .onChange(of: viewState) { newValue in

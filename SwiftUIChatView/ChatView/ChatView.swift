@@ -40,7 +40,9 @@ public struct ChatView: View {
                         ForEach(Array(chatList2.enumerated()), id: \.element) { index, model in
                             if model.msgType == .gif {
                                 
-                                ChatGifView(chatModel: model, offset: offset, index: index)
+                                ChatGifView(chatModel: model,
+                                            offset: offset,
+                                            index: index)
                                 
                             } else {
                                 Rectangle()
